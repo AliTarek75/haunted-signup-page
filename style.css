@@ -12,7 +12,7 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/images/background.jpg");
+  background: url("images/background.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(10px);  
