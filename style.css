@@ -12,14 +12,13 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/images/a.jpg");
+  background: url("/images/background.jpg");
   background-size: cover;
   background-position: center;
   filter: blur(10px);  
 }
 
 .main {
-  background-color: white;
   position: relative;
   left: 50%;
   top: 50%;
@@ -33,41 +32,46 @@ body::before {
   display: inline-block;
   width: 50%;
   height: 100%;
-  background-color: black;
-}
-
-.main > .left {
-  background-image: url(images/bg1.jpg);
   background-size: cover;
   background-position: center;
-}
-.main > .right {
-  background-image: url(images/bg2.jpg);
-  background-size: cover;
-  background-position: center;
+  position: relative;
+
+
 }
 
-.main > .left > div {
+.left {
+  background-image: url("images/bgl.jpg");
+  border-radius: 20px 0 0 20px;
+}
+
+.right {
+  background-image: url("images/bgr.jpg");
+  border-radius: 0 20px 20px 0;
+}
+
+.left > div {
   width: 150px;
   height: 160px;
   background-color: rgba(255, 255, 255, 0.8);
-  margin-inline: auto;
-  margin-top: 100px;
+  top: calc(50% - 24.5vh); /* Align the top of the logo box with the signup box, 24.5vh is basically (70% * 70vh)/2 simplified */
   border-radius: 20px;
-  position: relative;
-}
-
-.main > .left > div > * {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.main > .left > div > img {
+.left > div > * {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left > div > img {
   top: 1rem;
   border-radius: 50%;
 }
-.main > .left > div > p {
+
+.left > div > p {
   top: 6rem;
   border-radius: 50%;
   font-size: 1.5rem;
