@@ -1,12 +1,37 @@
-body {
-  background-color: black;
-} 
+* {
+  box-sizing: border-box;
+}
 
-body::after {
+body {
+  margin: 0;
+  background-color: black;
+  height: 100vh;
+}
+
+body::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url("/images/a.jpg");
   background-size: cover;
+  background-position: center;
   filter: blur(10px);  
+}
+
+.main {
+  background-color: white;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 950px;
+  height: 70%;
+}
+
+.main > div {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  background-color: black;
 }
