@@ -35,3 +35,14 @@ body::before {
   height: 100%;
   background-color: black;
 }
+
+.main > .left {
+  background-image: url(images/bg1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.main > .right {
+  background-image: url(images/bg2.jpg);
+  background-size: cover;
+  background-position: center;
+}
