@@ -46,3 +46,29 @@ body::before {
   background-size: cover;
   background-position: center;
 }
+
+.main > .left > div {
+  width: 150px;
+  height: 160px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-inline: auto;
+  margin-top: 100px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.main > .left > div > * {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main > .left > div > img {
+  top: 1rem;
+  border-radius: 50%;
+}
+.main > .left > div > p {
+  top: 6rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
