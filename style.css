@@ -35,8 +35,6 @@ body::before {
   background-size: cover;
   background-position: center;
   position: relative;
-
-
 }
 
 .left {
@@ -48,6 +46,69 @@ body::before {
   background-image: url("images/bgr.jpg");
   border-radius: 0 20px 20px 0;
 }
+
+.right > div {
+  width: 70%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  padding-inline: 40px;
+  align-content: center;
+  overflow: auto;
+
+}
+
+.right > div > * {
+  width: 100%;
+  height: 35px;
+  margin-block: 0.25rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.right > div > a {
+  color: black  ;
+  font-size: 0.75rem;
+  display: inline-block;
+  width: 58%;
+  text-align: right;
+}
+
+.right > div > input {
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+.right > div > .signUpBtn {
+  width: 40%;
+}
+
+.right > div > button {
+  color: white;
+
+  font-size: 1rem;
+  position: relative;
+  background: none;
+  border: 1px solid black;
+  background: black;
+  cursor: pointer;
+}
+
+button:active {
+  border: 2px solid white;
+}
+
+
+.right > div > p { 
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+
 
 .left > div {
   width: 150px;
