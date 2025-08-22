@@ -98,6 +98,10 @@ body::before {
   cursor: pointer;
 }
 
+.right > div > button > * {
+    vertical-align: middle;
+}
+
 button:active {
   border: 2px solid white;
 }
