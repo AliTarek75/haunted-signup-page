@@ -5,12 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="images/logo.jpg"> 
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=error" /> 
   <title>Mangé</title>
 </head>
 
 <body>
   <div class="main">
+    <div class="error" id="error">
+      <div><span class="material-symbols-outlined">error</span> <span id="error-message">Username is taken.</span></div>
+    </div>
     <div class="left">
       <div>
         <img src="images/logo.jpg" width="100px">
@@ -29,6 +33,7 @@
       </div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
