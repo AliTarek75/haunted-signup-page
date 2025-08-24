@@ -9,4 +9,4 @@ This project is for fun and experimentation only.
 It is NOT a real authentication system. Please do not use real usernames, emails, or passwords when testing it.
 
 ## Run  
-[View Live](AliTarek75.github.io/haunted-signup-page)
+[View Live](https://alitarek75.github.io/haunted-signup-page/)
