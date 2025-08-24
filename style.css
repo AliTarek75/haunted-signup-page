@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  height: 100vh;
+}
+
+/* Background image for the body but in a pseudo element to blur it alone */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);  
+}
+
+.main {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1050px;
+  height: 80%;
+}
+
+.main > div {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.left {
+  background-image: url("images/bgl.jpg");
+  border-radius: 1.25rem 0 0 20px;
+}
+
+.right {
+  background-image: url("images/bgr.jpg");
+  border-radius: 0 20px 20px 0;
+}
+
+/* Right Side Design */
+
+.right > div {
+  width: 70%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1.25rem;
+  padding-inline: 40px;
+  align-content: center;
+  overflow: auto;
+}
+
+.right > div > * {
+  width: 100%;
+  height: 35px;
+  margin-block: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+/* Button design */
+
+.right > div > button {
+  color: white;
+  font-size: 1rem;
+  border: 2px solid black;
+  background: black;
+  cursor: pointer;
+  transition: 0.2s background-color, 0.2s color;
+}
+
+.right > div > button:hover {
+  color: black;
+  background-color: transparent;
+}
+
+.right > div > button > * {
+    vertical-align: middle;
+}
+
+button:active {
+  border: 2px solid white;
+}
+
+.right > div > #forgotpassword {
+  color: black;
+  font-size: 0.75rem;
+  display: inline-block;
+  width: 58%;
+  text-align: right;
+}
+
+.right > div > .signUpBtn {
+  width: 40%;
+}
+
+.right > div > input {
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+.right > div > #or { 
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* Left Side Design */
+
+.left > div {
+  width: 150px;
+  height: 170px;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: calc(50% - 28vh); /* Align the top of the logo box with the signup box, 28vh is basically (70% * 80vh)/2 simplified */
+  border-radius: 1.25rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left > div > * {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.left > div > img {
+  top: 1rem;
+}
+
+.left > div > p {
+  font-size: 1.5rem;
+  text-align: center;
+}
