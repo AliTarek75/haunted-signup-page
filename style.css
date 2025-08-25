@@ -102,8 +102,11 @@ body::before {
   transform: translate(-50%, -50%);
   border-radius: 1.25rem;
   padding-inline: 40px;
-  align-content: center;
   overflow: auto;
+  display: flex; 
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 .right > div > * {
@@ -137,16 +140,15 @@ button:active {
   border: 2px solid white;
 }
 
-.right > div > #forgotpassword {
-  color: black;
-  font-size: 0.75rem;
-  display: inline-block;
-  width: 58%;
-  text-align: right;
+.right > div > .back {
+  width: 35%;
+  margin-top: 3.5rem;
 }
 
-.right > div > .signUpBtn {
-  width: 40%;
+.right > div > .next {
+  width: 35%;
+  margin-left: auto;
+  margin-top: 3.5rem;
 }
 
 .right > div > input {
