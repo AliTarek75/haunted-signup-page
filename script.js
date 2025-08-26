@@ -6,8 +6,8 @@ var orgin_x = rect.x + rect.width/2
 var orgin_y = rect.y + rect.width/2
     var mouseX = event.clientX; // X-coordinate relative to the viewport
     var mouseY = event.clientY; // Y-coordinate relative to the viewport
-    var angle = Math.atan2((mouseY - orgin_y)*-1 , (mouseX - orgin_x)*-1)*180/Math.PI
-    document.getElementsByClassName('iris')[index].style.rotate = angle+'deg'
+    var angle = Math.atan2((mouseY - orgin_y) , (mouseX - orgin_x)) - Math.PI/4
+    document.getElementsByClassName('iris')[index].style.rotate = `${angle}rad`
    // document.getElementsByClassName('eye')[0].style.left =  mouseX+'px'
    // document.getElementsByClassName('eye')[0].style.top =  mouseY+'px'
    

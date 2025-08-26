@@ -15,7 +15,7 @@ body{
     width: var(--eye_D);
     height: var(--eye_D);
     border-radius: 100%;
-   
+    outline: 2px solid red;
 }
 .e1{
     top:calc(100% * 225 * 404 / (500 * 394));
@@ -28,11 +28,10 @@ body{
 .iris{
     position: absolute;
     top: 50%;
-    left: calc(50% - 100% * 8 / 29);
-    translate: -50% -50%;
+    left: 50%;
+    transform-origin: left top;
     width: var(--iris_D);
     height: var(--iris_D);
-    transform-origin: calc(var(--circlation_R) + var(--iris_D) / 2) 50%;
     border-radius: 100%;
     background-color: black;
 }
