@@ -15,15 +15,14 @@ body{
     width: var(--eye_D);
     height: var(--eye_D);
     border-radius: 100%;
-    outline: 2px solid red;
 }
 .e1{
-    top:calc(100% * 225 * 404 / (500 * 394));
-    left: calc(100% * 200 / 500);
+    top:calc(100% * 221 * 404 / (500 * 394));
+    left: calc(100% * 193 / 500);
 }
 .e2{
-    top:calc(100% * 185 * 404 / (500 * 394));
-    left: calc(100% * 70 / 500);
+    top:calc(100% * 183 * 404 / (500 * 394));
+    left: calc(100% * 63 / 500);
 }
 .iris{
     position: absolute;
