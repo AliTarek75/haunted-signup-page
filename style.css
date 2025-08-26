@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+:root{
+    --im_width:50vw;
+    --eye_D:29%;
+    --iris_D:calc(100% * 10 / 29);
+    --circlation_R:80%;
+}
+.eye{
+    position: absolute;
+    width: var(--eye_D);
+    height: var(--eye_D);
+    border-radius: 100%;
+   
+}
+.e1{
+    top:calc(100% * 225 * 404 / (500 * 394));
+    left: calc(100% * 200 / 500);
+}
+.e2{
+    top:calc(100% * 185 * 404 / (500 * 394));
+    left: calc(100% * 70 / 500);
+}
+.iris{
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 100% * 8 / 29);
+    translate: -50% -50%;
+    width: var(--iris_D);
+    height: var(--iris_D);
+    transform-origin: calc(var(--circlation_R) + var(--iris_D) / 2) 50%;
+    border-radius: 100%;
+    background-color: black;
+}
+
+.everything{
+    position: absolute;
+    width: var(--im_width);
+    aspect-ratio: 404 / 394;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-image: url('girl.png');
+    background-repeat: no-repeat;
+    background-size:contain ;
+    background-position: center bottom;
+}
+
