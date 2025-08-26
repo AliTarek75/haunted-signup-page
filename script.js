@@ -1,4 +1,4 @@
-
+const root = document.documentElement;
 document.addEventListener('mousemove', (event) => { 
   for (let index = 0; index < document.getElementsByClassName('eye').length; index++) {
     rect = document.getElementsByClassName('eye')[index].getBoundingClientRect()
@@ -10,8 +10,11 @@ var orgin_y = rect.y + rect.width/2
     document.getElementsByClassName('iris')[index].style.rotate = `${angle}rad`
    // document.getElementsByClassName('eye')[0].style.left =  mouseX+'px'
    // document.getElementsByClassName('eye')[0].style.top =  mouseY+'px'
-   
+    root.style.setProperty("--iris_DC", document.getElementsByClassName('iris')[index].offsetWidth + "px");
+    const circlationR = getComputedStyle(root).getPropertyValue("--circlation_R");
+    root.style.setProperty("--circlation_RC", circlationR *  document.getElementsByClassName('iris')[index].offsetWidth + "px");
   }
   
   });
+  
   

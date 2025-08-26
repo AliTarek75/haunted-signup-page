@@ -8,7 +8,9 @@ body{
     --im_width:50vw;
     --eye_D:29%;
     --iris_D:calc(100% * 10 / 29);
-    --circlation_R:80%;
+    --circlation_R: 0.5;
+    --iris_DC: 0px;
+    --circlation_RC: 0px;
 }
 .eye{
     position: absolute;
@@ -28,11 +30,12 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform-origin: left top;
+    translate: calc(var(--iris_DC)/-2 + var(--circlation_RC)) calc(var(--iris_DC)/-2 + var(--circlation_RC));
+    transform-origin: calc(var(--iris_DC)/2 - var(--circlation_RC)) calc(var(--iris_DC)/2 - var(--circlation_RC));
     width: var(--iris_D);
     height: var(--iris_D);
-    border-radius: 100%;
     background-color: black;
+    border-radius: 100%;
 }
 
 .everything{
