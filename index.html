@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="popup">
+  <div class="popup wrapper">
     <pre id="popup-text">
 
     </pre>
@@ -18,7 +18,7 @@
   </div>
   <div class="main">
     <div class="error" id="error">
-      <div><span class="material-symbols-outlined">error</span> <span id="error-message">Username is taken.</span></div>
+      <div><span class="material-symbols-outlined">error</span> <span id="error-message"></span></div>
     </div>
     <div class="left">
       <div>
@@ -27,7 +27,7 @@
       </div>
     </div><div class="right">
 
-      <div id="v1">
+      <div id="v1" class="wrapper">
         <label for="email">Email</label>
         <input type="text" class="full-width" id="email" placeholder="potato@potato.potato">
 
@@ -39,20 +39,20 @@
 
         <label for="confirm-password">Confirm Password</label>
         <div class="full-width password-section">
-          <input type="password" id="confirm-password" placeholder="Enter your password again">
+          <input type="password" id="confirm-password" placeholder="Enter your password backwards">
           <button class="material-symbols-outlined">visibility</button>
         </div>
 
-        <span id="or" class="full-width">or</span>
+        <span id="or" class="full-width">Or</span>
         <button class="google full-width">Sign up with &nbsp;<img src="images/google_logo.png" width="20px"></button>
         <button class="apple full-width">Sign up with &nbsp;<img src="images/apple_logo.png" width="23px"></button>
         
-        <div class="full-width nav">
+        <div class="full-width nav wrapper">
           <button class="next full-width">Next</button> 
         </div>
       </div>
       
-      <div id="v2">
+      <div id="v2" class="wrapper">
         <label for="full-name">Full Name</label>
         <input type="text" class="full-width" id="full-name" placeholder="First Last">
 
@@ -65,32 +65,44 @@
         <label id="ageMonth" for="age">Age</label>
         <input type="range" min="0" max="1000" id="age" oninput="ageInput(this)">
 
-        <label id="ageMonth">Gender</label>
-        <div class="gender">
+        <label>Gender</label>
+        <div class="gender wrapper">
           <input type="radio" name="gender" id="gender-male"><label for="gender-male">Male</label>
           <input type="radio" name="gender" id="gender-female"><label for="gender-female">Female</label>
           <input type="radio" name="gender" id="gender-croissant"><label for="gender-croissant">Croissant</label>
         </div>
-        <div class="full-width nav">
+
+        <div class="full-width nav wrapper">
           <button class="back full-width">Back</button> 
           <button class="next full-width">Next</button> 
         </div>
       </div>
 
-      <div id="v3" >
-        <div class="full-width terms">
+      <div id="v3" class="wrapper">
+        <label for="username">Security Question: What's your username?</label>
+        <input type="text" class="full-width" id="username" placeholder="Yes, the same one you just typed">
+
+        <div class="full-width wrapper terms">
           <input type="checkbox" id="agreement">
           <label for="agreement">I have read and agree to the</label><br>
           <span onclick="openPopup()">Terms of Service & Privacy Policy.</span>
         </div>
+        
+        <label for="prove-terms">Prove that you read the Terms of Service & Privacy Policy. </label>
+        <input type="text" class="full-width" id="prove-terms" placeholder="Hint: It's in the Miscellaneous section">
 
-        <label for="username">Prove that you read the Terms of Service & Privacy Policy. </label>
-        <input type="text" class="full-width" id="username" placeholder="Hint: It's in the Miscellaneous section">
-
-        <button class="apple full-width">Prove you are not a robot</button>
-
-
-        <div class="full-width nav">
+        <div class="full-width marketing wrapper">
+          <input type="checkbox" id="marketing">
+          <label for="marketing">I consent to being sent recipes, chef tips, seasonal offers, and penguin updates.</label><br>
+        </div>
+        <div class="full-width wrapper">
+          <input type="checkbox" id="funny-question">
+          <label for="funny-question" id="funny-question-label"></label><br>
+        </div>
+        
+        
+        <button class="prove-robot full-width">Prove you are not a robot</button>
+        <div class="full-width nav wrapper last-nav">
           <button class="back full-width">Back</button> 
           <button class="next full-width">Signup</button> 
         </div>

@@ -157,7 +157,7 @@ body::before {
 
 /* Button design */
 
-.right > div > button, .nav > button, .popup > button {
+.wrapper > button {
   color: white;
   font-size: 1rem;
   border: 2px solid black;
@@ -166,7 +166,7 @@ body::before {
   transition: 0.2s background-color, 0.2s color;
 }
 
-.right > div > button:hover, .nav > button:hover, .popup > button:hover {
+.wrapper > button:hover {
   color: black;
   background-color: transparent;
 }
@@ -183,14 +183,12 @@ body::before {
 }
 
 .nav > .back {
-  width: 30%;
-  margin-top: auto;
+  width: 35%;
 }
 
 .nav > .next {
-  width: 30%;
+  width: 35%;
   margin-left: auto;
-  margin-top: auto;
   display: inline-block;
 }
 
@@ -225,10 +223,14 @@ body::before {
   padding-left: 20px;
 }
 
-.right > div > label {
+.wrapper > label {
   font-size: 0.8rem;
   font-weight: bold;
   margin-top: 0.25rem;
+  
+}
+.wrapper > * {
+  vertical-align: middle;
 }
 
 .right > div > #or { 
@@ -245,9 +247,16 @@ body::before {
   margin-top: 0.5rem;
 }
 
-.gender > * {
-  vertical-align: middle;
+label[for="prove-terms"] {
+  margin-top: 0.75rem;
+}
 
+.prove-robot {
+  margin-top: auto;
+}
+
+.last-nav {
+  margin-top: 0;
 }
 
 .gender > label, .terms > label, .terms > span {

@@ -20,7 +20,7 @@ for (let item of nextButtons) {
     item.addEventListener("click", () => {
         const version = item.parentNode.parentNode.id;
         let nextVersion = "v" + (parseInt(version.slice(1)) + 1)
-        if (nextVersion == "v4") nextVersion = "v1";
+        if (nextVersion == "v4") return;
         
         document.getElementById(version).style.display = "none";
         document.getElementById(nextVersion).style.display = "flex";
@@ -31,7 +31,6 @@ for (let item of backButtons) {
     item.addEventListener("click", () => {
         const version = item.parentNode.parentNode.id;
         let nextVersion = "v" + (parseInt(version.slice(1)) - 1)
-        if (nextVersion == "v0") nextVersion = "v3";
         
         document.getElementById(version).style.display = "none";
         document.getElementById(nextVersion).style.display = "flex";
@@ -45,6 +44,17 @@ function openPopup(text = terms) {
     popupText.parentNode.style.visibility = "visible";
 }
 
+function generateFunnyQuestion() {
+    const adjectives = ["suspicious", "grumpy", "fashionable", "funny", "heroic"];
+    const nouns = ["potato", "lasagna", "onion", "cucumber", "pancake", "chrimp", "chicken"];
+    const tasks = ["babysit my potato", "deliver pizza to me at midnight", "design a website", "run for president", "keep my darkest secret"];
+
+    const adj = adjectives[Math.floor(Math.random()*adjectives.length)];
+    const noun = nouns[Math.floor(Math.random()*nouns.length)];
+    const task = tasks[Math.floor(Math.random()*tasks.length)];
+    return `I trust a ${adj} ${noun} to ${task}.`;
+}
+document.getElementById("funny-question-label").textContent = generateFunnyQuestion();
 const terms = `Terms of Service & Privacy Policy
 
 Welcome, human, alien, sentient AI, or friendly cat watching over this page. By clicking “I Agree,” you are officially entering into an agreement with Totally Real Company™ (hereafter “TRC,” “we,” “us,” or “the mysterious cookie lovers who sometimes drink coffee”). This document is very long, very silly, and mostly harmless. Prepare yourself for hundreds of lines of pure fun.
