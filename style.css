@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    overflow: hidden;
 }
 *{
     box-sizing: border-box;
@@ -50,4 +51,38 @@ body{
     background-size:contain ;
     background-position: center bottom;
 }
-
+/* addational*/
+.inp{
+    position: absolute;
+    width: 100vw;
+    height: 50px;
+    bottom: 0px;
+    left: 50%;
+    translate: -50% 0%;
+    font-size: 26px;
+    outline: 0px;
+    padding-left: 10px;
+    padding-right: 1px;
+    opacity: 0.5;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    padding-top: calc(24px / 2);
+    padding-bottom: calc(24px / 2);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1;
+}
+.txt{
+    position: absolute;
+    width: auto;
+    height: 26px;
+    left: 10px;
+    bottom: calc(24px / 2);
+    background-color: aqua;
+    color: brown;
+    font-size: 26px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0px 0px 0px 0px;
+    white-space:pre-wrap;
+    line-height: 1
+}
