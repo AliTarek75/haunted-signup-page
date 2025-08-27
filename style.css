@@ -1,10 +1,12 @@
 * {
   box-sizing: border-box;
+  scrollbar-width: thin;
 }
 
 body {
   margin: 0;
   background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
 }
 
@@ -48,6 +50,84 @@ body::before {
   border-radius: 0 20px 20px 0;
 }
 
+.main > .error {
+  position: absolute;
+  width: 35%;
+  height: auto;
+  background-color: rgb(255, 68, 68);
+  z-index: 3;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: left;
+  padding-inline: 0.25rem;
+  color: rgb(248, 248, 248);
+  border-radius: 0 0 0.5rem 0.5rem;
+  display: grid;
+  grid-template-rows: 0fr;
+}
+
+.main > .error > div {
+  overflow-y: hidden;
+}
+
+.main > .error * {
+  vertical-align: middle;
+}
+
+@keyframes error {
+  0% {
+    grid-template-rows: 0fr;
+    padding-block: 0;
+  }
+
+  50% {
+    grid-template-rows: 1fr;
+    padding-block: 0.25rem;
+  }
+
+  100% {
+    grid-template-rows: 0fr;
+    padding-block: 0rem;
+  }
+}
+
+/* Popup */
+.popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1050px;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 4;
+  border-radius: 1.25rem;
+  color: white;
+  padding: 1rem;
+  text-align: justify;
+  opacity: 0;
+  overflow-y: auto;
+  transition: 0.2s visibility, 0.2s opacity;
+  visibility: hidden;
+}
+
+.popup pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;       
+  overflow-wrap: break-word;   
+}
+
+.popup > button {
+  display: block;
+  padding-inline: 2rem;
+  padding-block: 0.5rem;
+  border-radius: 0.5rem;
+  margin-left: auto;
+  border: 2px solid white !important;
+}
+
+
 /* Right Side Design */
 
 .right > div {
@@ -59,21 +139,25 @@ body::before {
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 1.25rem;
-  padding-inline: 40px;
+  padding-inline: min(2rem, 10% - 1rem);
+  padding-block: min(1rem, 5%);
+  display: flex; 
+  flex-direction: column;
   align-content: center;
   overflow: auto;
 }
 
-.right > div > * {
-  width: 100%;
-  height: 35px;
+.full-width {
+  width: 100%;  
+  height: 34px;
+  min-height: 34px;
   margin-block: 0.25rem;
   border-radius: 0.5rem;
 }
 
 /* Button design */
 
-.right > div > button {
+.wrapper > button {
   color: white;
   font-size: 1rem;
   border: 2px solid black;
@@ -82,39 +166,112 @@ body::before {
   transition: 0.2s background-color, 0.2s color;
 }
 
-.right > div > button:hover {
+.wrapper > button:hover {
   color: black;
   background-color: transparent;
 }
 
 .right > div > button > * {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
-button:active {
-  border: 2px solid white;
+/* Navigation Menu */
+
+.nav {
+  display: flex;
+  margin-top: auto;
 }
 
-.right > div > #forgotpassword {
-  color: black;
-  font-size: 0.75rem;
+.nav > .back {
+  width: 35%;
+}
+
+.nav > .next {
+  width: 35%;
+  margin-left: auto;
   display: inline-block;
-  width: 58%;
-  text-align: right;
 }
 
-.right > div > .signUpBtn {
-  width: 40%;
+/* Password Section Design in v1 */
+
+.password-section > input {
+  width: 85%; 
+  height: 35px;
+  border-radius: 0.5rem;
 }
+
+.password-section > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 13%;
+}
+
+.password-section > input {
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+.password-section > * {
+  vertical-align: middle;
+}
+
+/* Other specific stuff */
 
 .right > div > input {
   border: 1px solid black;
   padding-left: 20px;
 }
 
+.wrapper > label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+  
+}
+.wrapper > * {
+  vertical-align: middle;
+}
+
 .right > div > #or { 
   text-align: center;
   font-size: 1.25rem;
+  align-content: center;
+}
+
+#v3, #v2 {
+  display: none;
+}
+
+.gender {
+  margin-top: 0.5rem;
+}
+
+label[for="prove-terms"] {
+  margin-top: 0.75rem;
+}
+
+.prove-robot {
+  margin-top: auto;
+}
+
+.last-nav {
+  margin-top: 0;
+}
+
+.gender > label, .terms > label, .terms > span {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.terms > span {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.terms > * {
+  vertical-align: middle;
+
 }
 
 /* Left Side Design */
