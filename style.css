@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   scrollbar-width: thin;
+  line-height: 1;
 }
 
 body {
@@ -149,8 +150,8 @@ body::before {
 
 .full-width {
   width: 100%;  
-  height: 34px;
-  min-height: 34px;
+  height: 35px;
+  min-height: 35px;
   margin-block: 0.25rem;
   border-radius: 0.5rem;
 }
@@ -301,4 +302,98 @@ label[for="prove-terms"] {
 .left > div > p {
   font-size: 1.5rem;
   text-align: center;
+}
+.pas > input{
+  font-size: calc(33px * 0.4);
+  padding-top:calc(33px * 0.3);
+  padding-bottom:calc(33px * 0.3);
+  border: 1px solid black;
+  padding-left: 20px;
+  width: 100%;
+  height: 35px;
+  margin-block: 0.25rem;
+  border-radius: 0.5rem;
+  opacity: 0.5;
+}
+.pas{
+  position: relative;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 0;
+
+}
+.follow_span{
+  position: absolute;
+   background-color: aqua;
+  color: brown;
+  top:calc(33px * 0.3 + 1px);
+  left: 21px;
+  width: auto;
+  height:calc(33px * 0.4) ;
+  font-size: calc(33px * 0.4);
+}
+.material-symbols-outlined{
+  padding-right: 0;
+}
+.ema{
+  position: relative;
+  height:35px;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 4px 0 4px 0;
+}
+.ema > input{
+  border: 1px solid black;
+  padding-left: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+/*girl___________________________*/
+:root{
+  --im_width:40%;
+  --eye_D:29%;
+  --iris_D:calc(100% * 10 / 29);
+  --circlation_R: 0.5;
+  --iris_DC: 0px;
+  --circlation_RC: 0px;
+}
+.eye{
+  position: absolute;
+  width: var(--eye_D);
+  height: var(--eye_D);
+  border-radius: 100%;
+}
+.e1{
+  top:calc(100% * 221 * 404 / (500 * 394));
+  left: calc(100% * 193 / 500);
+}
+.e2{
+  top:calc(100% * 183 * 404 / (500 * 394));
+  left: calc(100% * 63 / 500);
+}
+.iris{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: calc(var(--iris_DC)/-2 + var(--circlation_RC)) calc(var(--iris_DC)/-2 + var(--circlation_RC));
+  transform-origin: calc(var(--iris_DC)/2 - var(--circlation_RC)) calc(var(--iris_DC)/2 - var(--circlation_RC));
+  width: var(--iris_D);
+  height: var(--iris_D);
+  background-color: black;
+  border-radius: 100%;
+}
+
+.girl{
+  position: absolute;
+  width: var(--im_width);
+  aspect-ratio: 404 / 394;
+  bottom: 0;
+  right: 0;
+  background-image: url('images/girl.png');
+  background-repeat: no-repeat;
+  background-size:contain ;
+  background-position: center bottom;
 }

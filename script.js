@@ -55,6 +55,7 @@ function generateFunnyQuestion() {
     return `I trust a ${adj} ${noun} to ${task}.`;
 }
 document.getElementById("funny-question-label").textContent = generateFunnyQuestion();
+
 const terms = `Terms of Service & Privacy Policy
 
 Welcome, human, alien, sentient AI, or friendly cat watching over this page. By clicking “I Agree,” you are officially entering into an agreement with Totally Real Company™ (hereafter “TRC,” “we,” “us,” or “the mysterious cookie lovers who sometimes drink coffee”). This document is very long, very silly, and mostly harmless. Prepare yourself for hundreds of lines of pure fun.
