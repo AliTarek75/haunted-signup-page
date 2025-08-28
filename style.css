@@ -198,6 +198,8 @@ body::before {
   width: 85%; 
   height: 35px;
   border-radius: 0.5rem;
+  border: 1px solid black;
+  padding-left: 20px;
 }
 
 .password-section > button {
@@ -207,16 +209,20 @@ body::before {
   width: 13%;
 }
 
-.password-section > input {
-  border: 1px solid black;
-  padding-left: 20px;
-}
-
 .password-section > * {
   vertical-align: middle;
 }
 
 /* Other specific stuff */
+
+input { 
+  outline: 1px solid transparent;
+  transition: 0.4s outline-color;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus {
+  outline: 1px solid black;
+}
 
 .right > div > input {
   border: 1px solid black;
