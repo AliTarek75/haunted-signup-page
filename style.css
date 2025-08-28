@@ -145,8 +145,12 @@ body::before {
   display: flex; 
   flex-direction: column;
   align-content: center;
+  overflow: auto;
+  scrollbar-width: none;
+
+}
+#v1{
   overflow: visible;
-  
 }
 
 .full-width {
