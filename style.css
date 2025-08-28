@@ -145,7 +145,8 @@ body::before {
   display: flex; 
   flex-direction: column;
   align-content: center;
-  overflow: auto;
+  overflow: visible;
+  
 }
 
 .full-width {
@@ -303,6 +304,7 @@ label[for="prove-terms"] {
   font-size: 1.5rem;
   text-align: center;
 }
+/*new_______________________*/
 .pas > input{
   font-size: calc(33px * 0.4);
   padding-top:calc(33px * 0.3);
@@ -313,7 +315,6 @@ label[for="prove-terms"] {
   height: 35px;
   margin-block: 0.25rem;
   border-radius: 0.5rem;
-  opacity: 0.5;
 }
 .pas{
   position: relative;
@@ -321,9 +322,11 @@ label[for="prove-terms"] {
   display: flex;
   align-items: center;
   padding: 0 0 0 0;
+  overflow: hidden;
 
 }
 .follow_span{
+  opacity: 0;
   position: absolute;
    background-color: aqua;
   color: brown;
@@ -332,9 +335,12 @@ label[for="prove-terms"] {
   width: auto;
   height:calc(33px * 0.4) ;
   font-size: calc(33px * 0.4);
+  white-space:pre-wrap;
+  overflow: hidden;
 }
-.material-symbols-outlined{
-  padding-right: 0;
+.visibility_button{
+  margin-right: 0;
+  padding: 0;
 }
 .ema{
   position: relative;
@@ -391,9 +397,11 @@ label[for="prove-terms"] {
   width: var(--im_width);
   aspect-ratio: 404 / 394;
   bottom: 0;
+  translate: 0 5%;
   right: 0;
   background-image: url('images/girl.png');
   background-repeat: no-repeat;
   background-size:contain ;
   background-position: center bottom;
 }
+

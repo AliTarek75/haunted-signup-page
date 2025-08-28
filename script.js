@@ -55,6 +55,50 @@ function generateFunnyQuestion() {
     return `I trust a ${adj} ${noun} to ${task}.`;
 }
 document.getElementById("funny-question-label").textContent = generateFunnyQuestion();
+//new___________________________//
+const root = document.documentElement;
+for (let num = 0; num < document.querySelectorAll('.pas > input').length; num++) {
+    document.querySelectorAll('.pas > input')[num].addEventListener('input',()=>{
+        var span_props = document.getElementsByClassName('follow_span')[num].getBoundingClientRect()
+        document.getElementsByClassName('follow_span')[num].innerText = document.querySelectorAll('.pas > input')[num].value
+        for (let index = 0; index < document.getElementsByClassName('eye').length; index++) {
+          rect = document.getElementsByClassName('eye')[index].getBoundingClientRect()
+      var orgin_x = rect.x + rect.width/2
+      var orgin_y = rect.y + rect.width/2
+          var spanX = span_props.x+span_props.width; // X-coordinate relative to the viewport
+          var spanY = span_props.y + span_props.height; // Y-coordinate relative to the viewport
+          var angle = Math.atan2((spanY - orgin_y) , (spanX - orgin_x)) - Math.PI/4
+          document.getElementsByClassName('iris')[index].style.rotate = `${angle}rad`
+         // document.getElementsByClassName('eye')[0].style.left =  spanX+'px'
+         // document.getElementsByClassName('eye')[0].style.top =  spanY+'px'
+          root.style.setProperty("--iris_DC", document.getElementsByClassName('iris')[index].offsetWidth + "px");
+          const circlationR = getComputedStyle(root).getPropertyValue("--circlation_R");
+          root.style.setProperty("--circlation_RC", circlationR *  document.getElementsByClassName('iris')[index].offsetWidth + "px");
+        }
+    
+      })
+
+
+
+
+}
+for (let n = 0; n < document.getElementsByClassName('visibility_button').length; n++) {
+    document.getElementsByClassName('visibility_button')[n].addEventListener('click',()=>{
+        if (document.querySelectorAll('.pas > input')[n].type == 'text') {
+            document.querySelectorAll('.pas > input')[n].type = 'password'
+            
+        }else{
+            document.querySelectorAll('.pas > input')[n].type = 'text'
+        }
+       
+        
+    })
+    
+}
+
+
+
+
 
 const terms = `Terms of Service & Privacy Policy
 
