@@ -151,6 +151,7 @@ body::before {
 }
 #v1{
   overflow: visible;
+  clip-path: inset(calc(-infinity *1px) 0 0 0); 
 }
 
 .full-width {
@@ -353,6 +354,9 @@ label[for="prove-terms"] {
   padding-top: 0;
   padding-bottom: 0;
   margin: 4px 0 4px 0;
+  overflow: visible;
+  clip-path: inset(calc(infinity * -1px) 0 0 0);
+
 }
 .ema > input{
   border: 1px solid black;
@@ -407,5 +411,6 @@ label[for="prove-terms"] {
   background-repeat: no-repeat;
   background-size:contain ;
   background-position: center bottom;
+
 }
 
