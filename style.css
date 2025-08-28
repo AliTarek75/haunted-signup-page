@@ -52,7 +52,8 @@ body::before {
 
 .main > .error {
   position: absolute;
-  width: 35%;
+  width: fit-content;
+  max-width: 45%;
   height: auto;
   background-color: rgb(255, 68, 68);
   z-index: 3;
@@ -80,9 +81,13 @@ body::before {
     padding-block: 0;
   }
 
-  50% {
+  20% {
     grid-template-rows: 1fr;
-    padding-block: 0.25rem;
+    padding-block: 0.1rem;
+  }
+  80% {
+    grid-template-rows: 1fr;
+    padding-block: 0.1rem;
   }
 
   100% {
