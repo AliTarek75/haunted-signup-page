@@ -18,6 +18,11 @@ inputMap["password"].addEventListener("copy", (event) => {
     showError("Cheating isn't allowed!")
 });
 
+inputMap["birth-date"].addEventListener("input", () => {
+    inputMap["birth-date"].style.color = "black";
+    if (inputMap["birth-date"].value == "") inputMap["birth-date"].style.color = "grey";
+})
+
 const nextButtons = document.getElementsByClassName("next");
 for (let item of nextButtons) {
     item.addEventListener("click", () => {
@@ -180,6 +185,7 @@ for (let item of nextButtons) {
             // ---- Age rules
             const currentDate = new Date();
             const birthDate = new Date(inputMap["birth-date"].value);
+            const daysPast = Math.floor( (currentDate-birthDate) / (1000 * 60 * 60 * 24) );
 
             let ageCalculated = currentDate.getFullYear() - birthDate.getFullYear();
             const monthDiff = currentDate.getMonth() - birthDate.getMonth();
@@ -190,7 +196,11 @@ for (let item of nextButtons) {
             }
             
             let age = inputMap["age"].value;
-
+            
+            if (daysPast < 5000 || daysPast > 35000) {
+                showError("You must be between 5,000 and 35,000 days old");
+                return;
+            }
             if (ageCalculated != age) {
                 showError("Hmm, something doesn't add up about that age and date of birth");
                 return;
@@ -225,7 +235,7 @@ for (let item of nextButtons) {
                 return;
             }
             if (gender == "Croissant" && genderJoke >= 2) {
-                showError("lright, let's be serious now — please pick from the real options");
+                showError("alright, let's be serious now — please pick from the real options");
                 return;
             }
 
