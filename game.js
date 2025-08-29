@@ -1,9 +1,12 @@
-let gameSkip = false;
-let wrongPageJoke = false;
-let genderJoke = 0;
-let potatoLodingJoke = false;
-let allowedUsernames = [];
-let attemptDragFromPassword = 0;
+const state = {
+    gameSkip: false,
+    wrongPageJoke: false,
+    genderJoke: 0,
+    potatoLoadingJoke: false,
+    allowedUsernames: [],
+    attemptDragFromPassword: 0
+}
+
 document.getElementsByClassName("google")[0].onclick = () => {
     showError("Google's AI has decided this isn't the right app for you.")
 }
@@ -23,17 +26,17 @@ inputMap["password"].addEventListener("copy", (event) => {
 });
 
 document.addEventListener("dragstart", (e) => {
-    if (e.target === inputMap["password"] && attemptDragFromPassword == 0) {
-        attemptDragFromPassword = 1;
+    if (e.target === inputMap["password"] && state.attemptDragFromPassword == 0) {
+        state.attemptDragFromPassword = 1;
     }
 });
 
 document.addEventListener("drop", (e) => {
-    if (e.target.tagName == "INPUT" && attemptDragFromPassword == 1) {
+    if (e.target.tagName == "INPUT" && state.attemptDragFromPassword == 1) {
         showError("Alright that was very clever, I will allow it", 10);
-        attemptDragFromPassword = 2;
-    } else if (attemptDragFromPassword != 2) {
-        attemptDragFromPassword = 0;
+        state.attemptDragFromPassword = 2;
+    } else if (state.attemptDragFromPassword != 2) {
+        state.attemptDragFromPassword = 0;
     }
 });
 
@@ -101,7 +104,7 @@ for (let item of nextButtons) {
         const version = item.parentNode.parentNode.id;
         let nextVersion = "v" + (parseInt(version.slice(1)) + 1);
         
-        if (version == "v1" && !gameSkip) {
+        if (version == "v1" && !state.gameSkip) {
 
             // ---- Email rules
             const emailRegexValidator = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -183,14 +186,14 @@ for (let item of nextButtons) {
                 return;
             }
 
-            if (!potatoLodingJoke) {
+            if (!state.potatoLoadingJoke) {
                 potatoLoading();
-                potatoLodingJoke = true;
+                state.potatoLoadingJoke = true;
                 return;
             }
 
 
-        } else if (version == "v2") {
+        } else if (version == "v2" && !state.gameSkip) {
             // ---- full name
             const fullname = inputMap["full-name"].value;
             if (!fullname) {
@@ -209,7 +212,7 @@ for (let item of nextButtons) {
                 return;
             }
 
-            if (username.length > 35 && allowedUsernames.includes(username.toLowerCase())) {
+            if (username.length > 35 && state.allowedUsernames.includes(username.toLowerCase())) {
                 showError("yes, We did suggest that username but it's too long, oh well, try again", 12);
                 return;
             }
@@ -252,11 +255,11 @@ for (let item of nextButtons) {
                 return;
             }
 
-            if (!allowedUsernames.includes(username.toLowerCase())) {
+            if (!state.allowedUsernames.includes(username.toLowerCase())) {
                 usernameExtras = ["_but_cooler", "_lol", "_official", "_v2", "_potato", "_ultimate", "_legendary", "_this_totally_works"];
                 let alt = username.toLowerCase() + Math.floor(Math.random()*100) + usernameExtras[Math.floor(Math.random()*usernameExtras.length)];
                 showError(`Username already taken, try ${alt}`);
-                allowedUsernames.push(alt);
+                state.allowedUsernames.push(alt);
                 return;
             }
 
@@ -294,25 +297,25 @@ for (let item of nextButtons) {
                 return;
             }
 
-            if (gender != "Croissant" && genderJoke == 0) {
+            if (gender != "Croissant" && state.genderJoke == 0) {
                 showError("Only croissants are allowed");
-                genderJoke++;
+                state.genderJoke++;
                 return;
             }
-            if (gender != "Croissant" && genderJoke == 1) {
+            if (gender != "Croissant" && state.genderJoke == 1) {
                 showError("I said only croissants are allowed");
                 return;
             }
-            if (gender == "Croissant" && genderJoke == 0) {
+            if (gender == "Croissant" && state.genderJoke == 0) {
                 showError("A croissant? interesting gender");
                 return;
             }
-            if (gender == "Croissant" && genderJoke == 1) {
+            if (gender == "Croissant" && state.genderJoke == 1) {
                 showError("Just kidding, you are not a croissant, are you?");
-                genderJoke++;
+                state.genderJoke++;
                 return;
             }
-            if (gender == "Croissant" && genderJoke >= 2) {
+            if (gender == "Croissant" && state.genderJoke >= 2) {
                 showError("alright, let's be serious now - please pick from the real options");
                 return;
             }
@@ -323,17 +326,17 @@ for (let item of nextButtons) {
                 return;
             }
 
-            if (wrongPageJoke) {
+            if (state.wrongPageJoke) {
                 nextVersion = "v3";
             }
             
-            if (!wrongPageJoke) {
+            if (!state.wrongPageJoke) {
                 showError("Oh. Oops, wrong page, my bad");
                 nextVersion = "v1";
-                wrongPageJoke = true;
+                state.wrongPageJoke = true;
             }
             
-        } else if (version == "v3") {
+        } else if (version == "v3" && !state.gameSkip) {
             return;
         }
         
