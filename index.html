@@ -62,8 +62,8 @@
         <label for="birth-date">Date of birth</label>
         <input style="color: gray;" type="date" class="full-width" id="birth-date">
 
-        <label id="ageMonth" for="age">Age</label>
-        <input type="range" min="0" max="1000" id="age" oninput="ageInput(this)">
+        <label id="age-label" for="age">Age</label>
+        <input type="range" min="0" max="100" id="age" step="1" oninput="ageInput(this)">
 
         <label>Gender</label>
         <div class="gender wrapper">
@@ -79,8 +79,8 @@
       </div>
 
       <div id="v3" class="wrapper">
-        <label for="username">Security Question: What's your username?</label>
-        <input type="text" class="full-width" id="username" placeholder="Yes, the same one you just typed" autocomplete="off">
+        <label for="security">Security Question: What's your username?</label>
+        <input type="text" class="full-width" id="security" placeholder="Yes, the same one you just typed" autocomplete="off">
 
         <div class="full-width wrapper terms">
           <input type="checkbox" id="agreement">

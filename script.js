@@ -8,7 +8,7 @@ function showError(message, duration = 5) {
 }
 
 function ageInput(input) {
-    document.getElementById("ageMonth").textContent = `Age (${input.value} Months Old)`;
+    document.getElementById("age-label").textContent = `Age (${input.value} Years Old)`;
 }
 
 document.getElementById("age").addEventListener("keydown", (e) => {
