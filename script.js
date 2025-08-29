@@ -1,7 +1,7 @@
 function showError(message, duration = 5) {
     const errorParent = document.getElementById("error");
     const errorMessage = document.getElementById("error-message");
-    errorMessage.textContent = message;
+    errorMessage.innerHTML = message + "&nbsp;&nbsp;";
     errorParent.style.animation = "none";
     void errorParent.offsetWidth;
     errorParent.style.animation = duration + "s error cubic-bezier(0, 1, 0, 1.2)";
