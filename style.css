@@ -26,8 +26,8 @@ body::before {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 1050px;
+  width: 90%;
+  max-width: 1100px;
   height: 80%;
 }
 
@@ -137,7 +137,7 @@ body::before {
 
 .right > div {
   width: 70%;
-  height: 70%;
+  height: 75%;
   background-color: rgba(255, 255, 255, 0.6);
   position: absolute;
   left: 50%;
@@ -291,7 +291,7 @@ label[for="prove-terms"] {
   width: 150px;
   height: 170px;
   background-color: rgba(255, 255, 255, 0.8);
-  top: calc(50% - 28vh); /* Align the top of the logo box with the signup box, 28vh is basically (70% * 80vh)/2 simplified */
+  top: calc(50% - 29.75vh); /* Align the top of the logo box with the signup box, 28vh is basically (70% * 85vh)/2 simplified */
   border-radius: 1.25rem;
   position: absolute;
   left: 50%;
