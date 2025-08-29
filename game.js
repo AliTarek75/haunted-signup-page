@@ -1,6 +1,8 @@
 let gameSkip = false;
+let wrongPageJoke = false;
 let genderJoke = 0;
 let allowedUsernames = [];
+let attemptDragFromPassword = 0;
 document.getElementsByClassName("google")[0].onclick = () => {
     showError("Google's AI has decided this isn't the right app for you.")
 }
@@ -13,11 +15,28 @@ const inputMap = Object.fromEntries(
     Array.from(inputs).map(input => [input.id, input])
 );
 
+// Cheating prevention
 inputMap["password"].addEventListener("copy", (event) => {
     event.preventDefault();
     showError("Cheating isn't allowed!")
 });
 
+document.addEventListener("dragstart", (e) => {
+    if (e.target === inputMap["password"] && attemptDragFromPassword == 0) {
+        attemptDragFromPassword = 1;
+    }
+});
+
+document.addEventListener("drop", (e) => {
+    if (e.target.tagName == "INPUT" && attemptDragFromPassword == 1) {
+        showError("Alright that was very clever, I will allow it", 10);
+        attemptDragFromPassword = 2;
+    } else if (attemptDragFromPassword != 2) {
+        attemptDragFromPassword = 0;
+    }
+});
+
+// Date change text color
 inputMap["birth-date"].addEventListener("input", () => {
     inputMap["birth-date"].style.color = "black";
     if (inputMap["birth-date"].value == "") inputMap["birth-date"].style.color = "grey";
@@ -27,13 +46,13 @@ const nextButtons = document.getElementsByClassName("next");
 for (let item of nextButtons) {
     item.addEventListener("click", () => {
         const version = item.parentNode.parentNode.id;
-        const nextVersion = "v" + (parseInt(version.slice(1)) + 1);
+        let nextVersion = "v" + (parseInt(version.slice(1)) + 1);
         
         if (version == "v1" && !gameSkip) {
 
             // ---- Email rules
             const emailRegexValidator = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            const email = inputMap["email"].value;
+            const email = inputMap["email"].value.trim();
             if (!emailRegexValidator.test(email)) {
                 showError("Please enter a valid email address");
                 return;
@@ -50,7 +69,7 @@ for (let item of nextButtons) {
             }
 
             // ---- Password rules
-            const password = inputMap["password"].value;
+            const password = inputMap["password"].value.trim();
             if (password.length < 8) {
                 showError("Your password must include at least 8 characters", 10);
                 return;
@@ -99,7 +118,7 @@ for (let item of nextButtons) {
             }
 
             // ---- confirm password
-            const confirmPassword = inputMap["confirm-password"].value;
+            const confirmPassword = inputMap["confirm-password"].value.trim();
             const passwordReplaced = password.replace(/o/g, "😮").replace(/O/g, "😮"); 
             if (confirmPassword == password) {
                 showError("You just wrote your confirmation password exactly as your password, did y😮u miss anything?", 12);
@@ -121,7 +140,7 @@ for (let item of nextButtons) {
             }
 
             // ---- username
-            const username = inputMap["username"].value;
+            const username = inputMap["username"].value.trim();
             if (!username) {
                 showError("Empty username? Are you for real?", 12);
                 return;
@@ -243,6 +262,16 @@ for (let item of nextButtons) {
             if (!inputMap["password"].value.toLowerCase().includes(gender.toLowerCase())) {
                 showError("Oh I forgot one more password rule, your password must contain your gender");
                 return;
+            }
+
+            if (wrongPageJoke) {
+                nextVersion = "v3";
+            }
+            
+            if (!wrongPageJoke) {
+                showError("Oh. Oops, wrong page, my bad");
+                nextVersion = "v1";
+                wrongPageJoke = true;
             }
             
         } else if (version == "v3") {
