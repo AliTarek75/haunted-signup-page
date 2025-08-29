@@ -1,6 +1,7 @@
 let gameSkip = false;
 let wrongPageJoke = false;
 let genderJoke = 0;
+let potatoLodingJoke = false;
 let allowedUsernames = [];
 let attemptDragFromPassword = 0;
 document.getElementsByClassName("google")[0].onclick = () => {
@@ -41,6 +42,58 @@ inputMap["birth-date"].addEventListener("input", () => {
     inputMap["birth-date"].style.color = "black";
     if (inputMap["birth-date"].value == "") inputMap["birth-date"].style.color = "grey";
 })
+
+// Potato loading function when switching from v1 to v2
+function potatoLoading() {
+    document.getElementById("v1").style.display = "none";
+    document.getElementById("potato-loading").style.display = "flex";
+    const loadingBar = document.getElementById("potato-loading-bar");
+    const loadingText = document.getElementById("potato-loading-text");
+    let increment = 2;
+
+    const barOnClick = () => {
+        loadingBar.style.setProperty("--progress", "100%");
+        loadingBar.removeEventListener("click", barOnClick);
+        loadingBar.style.cursor = "auto";
+        setTimeout(() => {
+            document.getElementById("potato-loading").style.display = "none";
+            document.getElementById("v2").style.display = "flex";
+        }, 1000);
+    };
+
+    const loadingIntervalText = setInterval (() => {
+        let loadingTextContent = loadingText.textContent;
+        loadingTextContent += ".";
+        if (loadingTextContent == "Loading Potato Servers....") loadingTextContent = "Loading Potato Servers";
+        loadingText.textContent = loadingTextContent;
+    }, 500)
+
+    const loadingIntervalBar = setInterval (() => {
+        const loadingBarContent = getComputedStyle(loadingBar).getPropertyValue("--progress");
+        let loadingBarContentSliced = parseFloat(loadingBarContent.slice(0, loadingBarContent.length -1));
+        loadingBarContentSliced += increment;
+        loadingBar.style.setProperty("--progress", loadingBarContentSliced + "%");
+        if (loadingBarContentSliced >= 50) increment = 1;
+        if (loadingBarContentSliced >= 75) increment = 0.5;
+        if (loadingBarContentSliced >= 85) increment = 0.25;
+
+    }, 100);
+
+
+    setTimeout(() => {
+        clearInterval(loadingIntervalBar);
+        setTimeout(() => {
+            loadingText.textContent = "Umm, did the bar stop?!";
+            clearInterval(loadingIntervalText);
+        }, 4000)
+        setTimeout(() => {
+            loadingText.textContent = "Can you give it a little push?";
+            loadingBar.style.cursor = "pointer";
+            loadingBar.addEventListener("click", barOnClick);
+        }, 7500)
+
+    }, 10000);
+}
 
 const nextButtons = document.getElementsByClassName("next");
 for (let item of nextButtons) {
@@ -112,8 +165,8 @@ for (let item of nextButtons) {
                 return;
             }
             
-            if (!password.includes(52)) { // number of letters
-                showError("Your password must include the number of letters in this error", 12);
+            if (!password.includes(71)) { // number of letters
+                showError("Final rule, trust me. Password must include the number of letters in this error message", 12);
                 return;
             }
 
@@ -121,12 +174,18 @@ for (let item of nextButtons) {
             const confirmPassword = inputMap["confirm-password"].value.trim();
             const passwordReplaced = password.replace(/o/g, "😮").replace(/O/g, "😮"); 
             if (confirmPassword == password) {
-                showError("You just wrote your confirmation password exactly as your password, did y😮u miss anything?", 12);
+                showError("I forgot to say that the confirmation password must have every O changed to 😮", 12);
                 return;
             }
 
             if (confirmPassword != passwordReplaced) {
-                showError("Your confirmation password must be exactly as your password but replace every O with 😮", 12);
+                showError("Your confirmation password must be exactly as your password", 12);
+                return;
+            }
+
+            if (!potatoLodingJoke) {
+                potatoLoading();
+                potatoLodingJoke = true;
                 return;
             }
 

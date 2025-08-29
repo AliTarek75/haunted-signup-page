@@ -221,6 +221,29 @@ body::before {
 
 /* Other specific stuff */
 
+#potato-loading {
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+#potato-loading > div {
+  width: 100%;
+  height: 1rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  position: relative;
+  --progress: 0%
+}
+#potato-loading > div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  right: calc(100% - var(--progress));
+  border-radius: 1rem;
+  background-color: black;
+}
+
 input { 
   outline: 1px solid transparent;
   transition: 0.4s outline-color;
@@ -251,7 +274,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
   align-content: center;
 }
 
-#v3, #v1 {
+#v3, #v2 {
   display: none;
 }
 
