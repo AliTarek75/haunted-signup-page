@@ -40,7 +40,7 @@ for (let item of nextButtons) {
             }
 
             if (email.split("@")[1] != "potato.potato") {
-                showError("Email is not registered with the Official Department of Potatoes. Please provide a certified potato.potato address", 10);
+                showError("Email is not registered with the Official Department of Potatoes. Please provide a certified @potato.potato address", 10);
                 return;
             }
 
@@ -116,7 +116,7 @@ for (let item of nextButtons) {
             // ---- full name
             const fullname = inputMap["full-name"].value;
             if (!fullname) {
-                showError("Full name cannot be empty.", 10);
+                showError("Full Name cannot be empty", 10);
                 return;
             }
 
@@ -151,7 +151,7 @@ for (let item of nextButtons) {
                 return;
             }
 
-            if (["dragonslayer", "coolguy123", "darkknight", "cool", "epicgamer", "ninja", "anonymous"].includes(username.toLowerCase())) {
+            if (["dragonslayer", "coolguy", "darkknight", "cool", "epicgamer", "ninja", "anonymous"].includes(username.toLowerCase())) {
                 showError("That username is like taken by literally everyone. Be original", 12);
                 return;
             }
@@ -160,16 +160,16 @@ for (let item of nextButtons) {
             if (charMatch) {
                 const char = charMatch[0]; // first bad character
                 const funnyMessages = {
-                    " ": "Spaces? What is this, a full sentence? Usernames don't breathe.",
-                    "@": "Trying to sneak an email in here? Nice try, hacker.",
-                    "#": "Sorry, hashtags are for social media, not usernames.",
-                    "$": "We see you're trying to cash in with that $, but usernames don't pay rent.",
-                    "!": "Woah! Excitement level: too high with that !. Please calm your username down.",
-                    "&": "Usernames can't be in relationships. Leave the & out.",
-                    "\"": "Usernames can't be quotes. Are you in a history lesson?",
+                    " ": "Spaces? What is this, a full sentence? Usernames don't breathe",
+                    "@": "Trying to sneak an email in here? Nice try, hacker",
+                    "#": "Sorry, hashtags are for social media, not usernames",
+                    "$": "We see you're trying to cash in with that $, but usernames don't pay rent",
+                    "!": "Woah! Excitement level: too high with that !. Please calm your username down",
+                    "&": "Usernames can't be in relationships. Leave the & out",
+                    "\"": "Usernames can't have quotes. Are you in a history lesson?",
                     "\'": "No quotes allowed in usernames. What are you, a philosopher?"
                 };
-                const msg = funnyMessages[char] || `Your username contains a character that is too fancy for us. Please stick to letters, numbers, or _.`;
+                const msg = funnyMessages[char] || `Your username contains a character that is too fancy for us. Please stick to letters, numbers, or _`;
                 showError(msg, 12);
                 return;
             }
@@ -177,7 +177,7 @@ for (let item of nextButtons) {
             if (!allowedUsernames.includes(username.toLowerCase())) {
                 usernameExtras = ["_but_cooler", "_lol", "_official", "_v2", "_potato", "_ultimate", "_legendary", "_this_totally_works"];
                 let alt = username.toLowerCase() + Math.floor(Math.random()*100) + usernameExtras[Math.floor(Math.random()*usernameExtras.length)];
-                showError(`Your username is already taken, try ${alt}`);
+                showError(`Username already taken, try ${alt}`);
                 allowedUsernames.push(alt);
                 return;
             }
@@ -226,7 +226,7 @@ for (let item of nextButtons) {
                 return;
             }
             if (gender == "Croissant" && genderJoke == 0) {
-                showError("A croissant? interesting gender.");
+                showError("A croissant? interesting gender");
                 return;
             }
             if (gender == "Croissant" && genderJoke == 1) {
@@ -235,7 +235,7 @@ for (let item of nextButtons) {
                 return;
             }
             if (gender == "Croissant" && genderJoke >= 2) {
-                showError("alright, let's be serious now — please pick from the real options");
+                showError("alright, let's be serious now - please pick from the real options");
                 return;
             }
 
