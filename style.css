@@ -6,8 +6,8 @@
 body {
   margin: 0;
   background-color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  height: 100svh;
 }
 
 /* Background image for the body but in a pseudo element to blur it alone */
@@ -52,7 +52,8 @@ body::before {
 
 .main > .error {
   position: absolute;
-  width: 35%;
+  width: fit-content;
+  max-width: 45%;
   height: auto;
   background-color: rgb(255, 68, 68);
   z-index: 3;
@@ -132,8 +133,8 @@ body::before {
 
 .right > div {
   width: 70%;
-  height: 70%;
-  background-color: rgba(255, 255, 255, 0.6);
+  height: 75%;
+  background-color: rgba(255, 255, 255, 0.625);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -145,6 +146,66 @@ body::before {
   flex-direction: column;
   align-content: center;
   overflow: auto;
+}
+
+
+
+@media screen and (max-height: 650px) {
+  .right > div {
+    height: 80%;
+  }
+}
+@media screen and (max-height: 600px) {
+  .right > div {
+    height: 90%;
+  }
+}
+@media screen and (max-height: 550px) {
+  .main {
+    height: 90% !important;
+  }
+}
+@media screen and (max-height: 470px) {
+  .right > div {
+    height: 95%;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .right > div {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    width: 100%;
+    height: 65%;
+  }
+  .main > .right {
+    border-radius: 1.25rem;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    max-width: 90%;
+    background: none;
+  }
+
+  .left {
+    display: none !important;
+  }
+
+  .main > .error {
+    max-width: 70%;
+    width: 70%;
+  }
+    .right > div {
+    width: 95%;
+    height: 100%;
+    padding-inline: 1.5rem;
+  } 
 }
 
 .full-width {
@@ -223,11 +284,10 @@ body::before {
   padding-left: 20px;
 }
 
+
 .wrapper > label {
   font-size: 0.8rem;
-  font-weight: bold;
   margin-top: 0.25rem;
-  
 }
 .wrapper > * {
   vertical-align: middle;
@@ -235,8 +295,17 @@ body::before {
 
 .right > div > #or { 
   text-align: center;
-  font-size: 1.25rem;
+  font-weight: bold;
   align-content: center;
+}
+
+.or-section > button {
+  width: 49%;
+
+}
+
+.or-section > button > * {
+  vertical-align: middle;
 }
 
 #v3, #v2 {
@@ -259,19 +328,12 @@ label[for="prove-terms"] {
   margin-top: 0;
 }
 
-.gender > label, .terms > label, .terms > span {
-  font-weight: bold;
-  font-size: 0.8rem;
-}
+
 
 .terms > span {
   cursor: pointer;
   text-decoration: underline;
-}
-
-.terms > * {
-  vertical-align: middle;
-
+  font-size: 0.8rem;
 }
 
 /* Left Side Design */
@@ -297,6 +359,31 @@ label[for="prove-terms"] {
 .left > div > img {
   top: 1rem;
 }
+
+
+.small-view {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-weight: bold;
+}
+
+.small-view h1 {
+  font-size: 1.25rem;
+}
+
+.small-view img {
+  display: block;
+  margin-left: auto;
+  text-align: right;
+}
+
+.small-view img {
+  width: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
 
 .left > div > p {
   font-size: 1.5rem;
