@@ -28,7 +28,7 @@ body::before {
   transform: translate(-50%, -50%);
   width: 80%;
   max-width: 1050px;
-  height: 80%;
+  height: 75%;
 }
 
 .main > div {
@@ -333,9 +333,9 @@ label[for="prove-terms"] {
   text-align: center;
 }
 
-@media screen and (max-height: 650px) {
+@media screen and (max-height: 700px) {
   .right > div {
-    height: 80%;
+    height: 85%;
   }
 }
 @media screen and (max-height: 600px) {
@@ -343,15 +343,18 @@ label[for="prove-terms"] {
     height: 90%;
   }
 }
-@media screen and (max-height: 550px) {
+@media screen and (max-height: 570px) {
   .main {
-    height: 95% !important;
+    height: 85% !important;
   }
   .popup {
     height: 90% !important;
   }
 }
-@media screen and (max-height: 470px) {
+@media screen and (max-height: 500px) {
+    .main {
+    height: 90% !important;
+  }
   .right > div {
     height: 95% !important;
   }
