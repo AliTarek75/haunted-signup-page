@@ -185,7 +185,9 @@ body::before {
 
 .nav {
   display: flex;
-  margin-top: auto;
+  flex-wrap: wrap;
+    margin-top: auto;
+
 }
 
 .nav > .back {
@@ -196,6 +198,15 @@ body::before {
   width: 35%;
   margin-left: auto;
   display: inline-block;
+}
+
+.support {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 /* Password Section Design in v1 */
@@ -274,7 +285,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
   align-content: center;
 }
 
-#v3, #v2 {
+#v1, #v2 {
   display: none;
 }
 

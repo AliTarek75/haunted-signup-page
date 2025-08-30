@@ -86,11 +86,11 @@ function potatoLoading() {
     setTimeout(() => {
         clearInterval(loadingIntervalBar);
         setTimeout(() => {
-            loadingText.textContent = "umm, did the bar stop?";
+            loadingText.textContent = "Umm, did the bar stop?";
             clearInterval(loadingIntervalText);
         }, 4500)
         setTimeout(() => {
-            loadingText.textContent = "uh, Can you give it a push?";
+            loadingText.textContent = "Uh, can you give it a push?";
             loadingBar.style.cursor = "pointer";
             loadingBar.addEventListener("click", barOnClick);
         }, 8500)
@@ -343,7 +343,26 @@ for (let item of nextButtons) {
             }
             
         } else if (version == "v3" && !state.gameSkip) {
-            return;
+            const phone = inputMap["security"].value;
+            if (phone == "") {
+                showError(`Leaving your phone number blank doesn't make you harder to track, it just makes us confused`);
+                return;
+            }
+
+            if (/^[a-zA-Z]+$/.test(phone)) {
+                showError("That's not a phone number, that's a poem");
+                return;
+            }
+
+            if (/[a-zA-Z]/.test(phone) && /\d/.test(phone)) {
+                showError("What is this phone number, a password? We just want digits");
+                return;
+            }
+
+            if (phone != "123-4567") {
+                showError(`We tried to call ${phone}, but it was unavailable. Please call customer support for help (hint hint)`);
+                return;
+            }
         }
         
         document.getElementById(version).style.display = "none";
