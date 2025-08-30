@@ -258,7 +258,7 @@ for (let item of nextButtons) {
             if (!state.allowedUsernames.includes(username.toLowerCase())) {
                 usernameExtras = ["_but_cooler", "_lol", "_official", "_v2", "_potato", "_ultimate", "_legendary", "_this_totally_works"];
                 let alt = username.toLowerCase() + Math.floor(Math.random()*100) + usernameExtras[Math.floor(Math.random()*usernameExtras.length)];
-                showError(`Username already taken, try ${alt}`);
+                showError(`Sorry, ${username} is already taken. Suggestions: ${alt}.`);
                 state.allowedUsernames.push(alt);
                 return;
             }
@@ -282,6 +282,12 @@ for (let item of nextButtons) {
                 showError("You must be between 5,000 and 35,000 days old");
                 return;
             }
+
+            if (birthDate == "Invalid Date") {
+                showError("No birthday? What are you, timeless?");
+                return;
+            }
+
             if (ageCalculated != age) {
                 showError(`Weird... your age and birth date are different. Schrödinger's birthday?`);
                 return;
