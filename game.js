@@ -86,14 +86,14 @@ function potatoLoading() {
     setTimeout(() => {
         clearInterval(loadingIntervalBar);
         setTimeout(() => {
-            loadingText.textContent = "Umm, did the bar stop?!";
+            loadingText.textContent = "umm, did the bar stop?";
             clearInterval(loadingIntervalText);
-        }, 4000)
+        }, 4500)
         setTimeout(() => {
-            loadingText.textContent = "Can you give it a little push?";
+            loadingText.textContent = "uh, Can you give it a push?";
             loadingBar.style.cursor = "pointer";
             loadingBar.addEventListener("click", barOnClick);
-        }, 7500)
+        }, 8500)
 
     }, 10000);
 }
@@ -168,8 +168,8 @@ for (let item of nextButtons) {
                 return;
             }
             
-            if (!password.includes(71)) { // number of letters
-                showError("Final rule, trust me. Password must include the number of letters in this error message", 12);
+            if (!password.includes("red")) { // number of letters
+                showError("Final rule, trust me. Password must include the color of this error message", 12);
                 return;
             }
 
@@ -207,7 +207,7 @@ for (let item of nextButtons) {
                 showError("Empty username? Are you for real?", 12);
                 return;
             }
-            if (username.length < 3) {
+            if (username.length <= 3) {
                 showError("What is this tiny boring username, try something bigger", 12);
                 return;
             }
@@ -283,7 +283,7 @@ for (let item of nextButtons) {
                 return;
             }
             if (ageCalculated != age) {
-                showError("Hmm, something doesn't add up about that age and date of birth");
+                showError(`Weird... your age and birth date are different. Schrödinger's birthday?`);
                 return;
             }
 
@@ -316,13 +316,13 @@ for (let item of nextButtons) {
                 return;
             }
             if (gender == "Croissant" && state.genderJoke >= 2) {
-                showError("alright, let's be serious now - please pick from the real options");
+                showError("Alright, let's be serious now. Please pick from the real options");
                 return;
             }
 
             // ---- password rule again
             if (!inputMap["password"].value.toLowerCase().includes(gender.toLowerCase())) {
-                showError("Oh I forgot one more password rule, your password must contain your gender");
+                showError("Oh I forgot one more password rule, your password must include your gender");
                 return;
             }
 
