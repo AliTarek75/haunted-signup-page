@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="images/logo.jpg"> 
   <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=visibility" />  <title>Mangé</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />  <title>Mangé</title>
 </head>
 
 <body>
@@ -28,24 +28,30 @@
     </div><div class="right">
 
       <div id="v1" class="wrapper">
-        <label for="email">Email</label>
-        <input type="text" class="full-width" id="email" placeholder="potato@potato.potato">
+        <div class="small-view">
+          <h1>The Sign up Game</h1>
+          <img src="images/logo.jpg" width="100px">
+        </div>
 
+        <label for="email">Email</label>
+        <input type="text" class="full-width" id="email" placeholder="potato@potato.potato" autocomplete="off">
         <label for="password">Password</label>
         <div class="full-width password-section">
-          <input type="password" id="password" placeholder="Choose a password">
-          <button class="material-symbols-outlined">visibility</button>
+          <input type="password" id="password" placeholder="Choose a password" autocomplete="off">
+          <button onclick="showError('wdawd awaw faf awf awf awf aw wag agawgawg aw gawg awaw wa g')" class="material-symbols-outlined">visibility</button>
         </div>
 
         <label for="confirm-password">Confirm Password</label>
         <div class="full-width password-section">
-          <input type="password" id="confirm-password" placeholder="Enter your password backwards">
+          <input type="password" id="confirm-password" placeholder="Enter your password again" autocomplete="off">
           <button class="material-symbols-outlined">visibility</button>
         </div>
 
-        <span id="or" class="full-width">Or</span>
-        <button class="google full-width">Sign up with &nbsp;<img src="images/google_logo.png" width="20px"></button>
-        <button class="apple full-width">Sign up with &nbsp;<img src="images/apple_logo.png" width="23px"></button>
+        <span id="or" class="full-width">Or signup with </span>
+        <div class="wrapper or-section">
+          <button class="google full-width"><img src="images/google_logo.png" width="20px">&nbsp;&nbsp;Google</button>
+          <button class="apple full-width"><img src="images/apple_logo.png" width="23px">&nbsp;&nbsp;Apple</button>
+        </div>
         
         <div class="full-width nav wrapper">
           <button class="next full-width">Next</button> 
