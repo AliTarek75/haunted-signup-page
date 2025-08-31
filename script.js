@@ -177,7 +177,7 @@ Welcome, human, alien, sentient AI, or friendly cat watching over this page. By 
 8. Hovering may trigger playful messages.
 9. Excessive blinking may result in compliments.
 10. Agreement to these terms may increase happiness by a small but measurable amount.
-11. If we ask you to prove that you have read this, just answer (potato123potatostrongerthanpotato)
+11. If we ask you to prove that you have read this, just answer (bananabanana)
 
 11. Filler Section (Because We Can)
 

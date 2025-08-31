@@ -363,6 +363,25 @@ for (let item of nextButtons) {
                 showError(`We tried to call ${phone}, but it was unavailable. Please call customer support for help (hint hint)`);
                 return;
             }
+
+            const termsCheckBox = inputMap["agreement"].checked;
+            if (!termsCheckBox) {
+                showError("Sorry, you must agree with our terms of service to continue");
+                return;
+            }
+
+            const proveTerms = inputMap["prove-terms"].value.toLowerCase();
+            if (proveTerms != "bananabanana") {
+                showError("Your proof is Incorrect, maybe try reading the terms?");
+                return;
+            }
+
+            const penguinUpdates = inputMap["marketing"].checked;
+            if (!penguinUpdates) {
+                showError("What! You don't want penguin updates?!");
+                return;
+            }
+
         }
         
         document.getElementById(version).style.display = "none";
