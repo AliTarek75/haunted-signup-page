@@ -121,7 +121,7 @@ function catchSignup() {
 
     signupGame.offsetHeight; 
     gameIntervalFn();
-    gameInterval = setInterval(gameIntervalFn , 900);
+    gameInterval = setInterval(gameIntervalFn , 700);
 }
 signup.addEventListener("mouseenter", () => {
     if (navigator.maxTouchPoints <= 0) {
@@ -136,8 +136,73 @@ signup.addEventListener("mouseenter", () => {
     } 
 });
 
+let winDraft = `Your account has been successfully created. 
+You've navigated our ridiculous form!
+Will you be able to log in with it now? ...
+Just kidding!
+Thanks for playing the signup game!
+`
+let winInterval, loadingWinText;
+let loadingWinTextList = {
+    1: "Creating your profile",
+    10: "Connecting to the official potato server",
+    20: "Running final validation protocols",
+    35: "Baking your account to perfection"
+}
+
 function win() {
     clearInterval(gameInterval);
+    signupGame.style.display = "none";
+    const winText = document.getElementById("win-text");
+    document.getElementById("v3").style.display = "none";
+    document.getElementsByClassName("win")[0].style.display = "flex";
+    let timer = 0;
+    function winIntervalFn() {    
+        if (timer < 48 && timer > 1) {
+            winText.textContent += ".";
+            if (winText.textContent == loadingWinText + "....") winText.textContent = loadingWinText;
+        }
+
+        if (Object.keys(loadingWinTextList).includes(timer + "")) {
+            loadingWinText = loadingWinTextList[timer + ""];
+            winText.textContent = loadingWinText;
+        }
+
+        if (timer == 48) {
+            winText.textContent = "";
+        }
+
+        if (timer == 50) {
+            changeWinSpeed(80);
+            winText.style.textAlign = "left";
+            winText.style.top = "0";
+            document.querySelector(".win > h2").style.display = "block";
+        }
+
+        if (timer == 172) {
+            changeWinSpeed(800);
+        }
+
+        if (timer == 176) {
+            changeWinSpeed(80);
+        }
+        if (timer == winDraft.length + 49) {
+            clearInterval(winInterval)
+        }
+
+        if (timer >= 50) {
+            winText.textContent += winDraft[timer - 50];
+        }
+                    
+        timer++;
+    }
+
+    function changeWinSpeed(speed) {
+        clearInterval(winInterval);
+        winInterval = setInterval(winIntervalFn, speed); 
+    }
+    winInterval = setInterval(winIntervalFn, 500); 
+
 }
 
 const nextButtons = document.getElementsByClassName("next");
@@ -428,7 +493,6 @@ for (let item of nextButtons) {
                 catchSignup();
                 return;
             }
-
         }
         
         document.getElementById(version).style.display = "none";

@@ -10,6 +10,10 @@ body {
   height: 100vh;
 }
 
+pre {
+  font-family: inherit;
+}
+
 /* Background image for the body but in a pseudo element to blur it alone */
 body::before {
   content: "";
@@ -116,6 +120,7 @@ body::before {
   overflow-y: auto;
   transition: 0.2s visibility, 0.2s opacity;
   visibility: hidden;
+  line-height: 1.35rem;
 }
 
 .popup pre {
@@ -238,10 +243,29 @@ body::before {
 .catch-game > button {
   position: relative;
   z-index: 100;
-  transition: 0.5s transform;
+  transition: 0.4s transform;
   margin: 0;
   display: none;
   transform: translate(0, 0);
+}
+
+/* win */
+
+.right > .win {
+  display: none;
+}
+
+.win > h2 {
+  text-align: center;
+  display: none;
+}
+
+#win-text {
+  position: relative;
+  top: 30%;
+  line-height: 1.5rem;
+  text-wrap: wrap;
+  text-align: center;
 }
 
 /* Potato Loading */
