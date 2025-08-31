@@ -186,8 +186,7 @@ body::before {
 .nav {
   display: flex;
   flex-wrap: wrap;
-    margin-top: auto;
-
+  margin-top: auto;
 }
 
 .nav > .back {
@@ -230,7 +229,22 @@ body::before {
   vertical-align: middle;
 }
 
-/* Other specific stuff */
+/* Catch Game */
+.catch-game {
+  position: absolute;
+  inset: 0;
+}
+
+.catch-game > button {
+  position: relative;
+  z-index: 100;
+  transition: 0.5s transform;
+  margin: 0;
+  display: none;
+  transform: translate(0, 0);
+}
+
+/* Potato Loading */
 
 #potato-loading {
   justify-content: center;
@@ -254,6 +268,8 @@ body::before {
   border-radius: 1rem;
   background-color: black;
 }
+
+/* Other specific stuff */
 
 input { 
   outline: 1px solid transparent;

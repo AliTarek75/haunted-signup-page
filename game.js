@@ -98,6 +98,48 @@ function potatoLoading() {
     }, 10000);
 }
 
+let gameInterval;
+const signup = document.getElementById("signup");
+const signupGame = document.getElementById("signup-game-button");
+function catchSignup() {
+    signupGame.style.width = getComputedStyle(signup).width;
+    let signupTop = signup.getBoundingClientRect().top;
+    let signupLeft = signup.getBoundingClientRect().left; 
+    signupGame.style.top = signupTop + "px";
+    signupGame.style.left = signupLeft + "px";
+
+    showError("What! Catch that signup button! Quick!");
+
+    signupGame.style.display = "block";
+    signup.style.display = "none";
+
+    function gameIntervalFn() {
+        let randomX = Math.floor(Math.random() * (window.innerWidth - 200)) - signupLeft;
+        let randomY = Math.floor(Math.random() * (window.innerHeight - 200)) - signupTop;
+        signupGame.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+
+    signupGame.offsetHeight; 
+    gameIntervalFn();
+    gameInterval = setInterval(gameIntervalFn , 900);
+}
+signup.addEventListener("mouseenter", () => {
+    if (navigator.maxTouchPoints <= 0) {
+        if (inputMap["security"].value != "123-4567" ||
+            inputMap["prove-terms"].value != "bananabanana" ||
+            !inputMap["agreement"].checked ||
+            !inputMap["marketing"].checked) {
+                return;
+            };
+        
+        catchSignup();
+    } 
+});
+
+function win() {
+    clearInterval(gameInterval);
+}
+
 const nextButtons = document.getElementsByClassName("next");
 for (let item of nextButtons) {
     item.addEventListener("click", () => {
@@ -379,6 +421,11 @@ for (let item of nextButtons) {
             const penguinUpdates = inputMap["marketing"].checked;
             if (!penguinUpdates) {
                 showError("What! You don't want penguin updates?!");
+                return;
+            }
+
+            if (navigator.maxTouchPoints > 0) {
+                catchSignup();
                 return;
             }
 
