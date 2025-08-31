@@ -1,10 +1,10 @@
-function showError(message, duration = 5) {
+function showError(message, duration = 6) {
     const errorParent = document.getElementById("error");
     const errorMessage = document.getElementById("error-message");
     errorMessage.innerHTML = message;
     errorParent.style.animation = "none";
     void errorParent.offsetWidth;
-    errorParent.style.animation = duration + "s error cubic-bezier(0, 1, 0, 1.2)";
+    errorParent.style.animation = duration + "s error cubic-bezier(0, 1, 0, 2)";
 }
 
 function ageInput(input) {

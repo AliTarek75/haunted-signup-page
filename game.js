@@ -136,9 +136,9 @@ signup.addEventListener("mouseenter", () => {
     } 
 });
 
-let winDraft = `Your account has been successfully created. 
+let winDraft = `Your account has been created. 
 You've navigated our ridiculous form!
-Will you be able to log in with it now? ...
+Will you be able to log in with it? ...
 Just kidding!
 Thanks for playing the signup game!
 `
@@ -155,6 +155,8 @@ function win() {
     signupGame.style.display = "none";
     const winText = document.getElementById("win-text");
     document.getElementById("v3").style.display = "none";
+    document.getElementById("v2").style.display = "none";
+    document.getElementById("v1").style.display = "none";
     document.getElementsByClassName("win")[0].style.display = "flex";
     let timer = 0;
     function winIntervalFn() {    
@@ -179,11 +181,11 @@ function win() {
             document.querySelector(".win > h2").style.display = "block";
         }
 
-        if (timer == 172) {
+        if (timer == 155) {
             changeWinSpeed(800);
         }
 
-        if (timer == 176) {
+        if (timer == 160) {
             changeWinSpeed(80);
         }
         if (timer == winDraft.length + 49) {
@@ -315,22 +317,22 @@ for (let item of nextButtons) {
                 return;
             }
             if (username.length <= 3) {
-                showError("What is this tiny boring username, try something bigger", 12);
+                showError("What is this tiny boring username, try something bigger", 7);
                 return;
             }
 
             if (username.length > 35 && state.allowedUsernames.includes(username.toLowerCase())) {
-                showError("yes, We did suggest that username but it's too long, oh well, try again", 12);
+                showError("yes, We did suggest that username but it's too long, oh well, try again", 10);
                 return;
             }
 
             if (username.length > 35) {
-                showError("Woah, hold on shakespeare, your username is too big", 12);
+                showError("Woah, hold on shakespeare, your username is too big", 7);
                 return;
             }
 
             if (/^\d+$/.test(username)) {
-                showError("What is this username, a phone number?!", 12);
+                showError("What is this username, a phone number?!", 7);
                 return;
             }
 
@@ -340,7 +342,7 @@ for (let item of nextButtons) {
             }
 
             if (["dragonslayer", "coolguy", "darkknight", "cool", "epicgamer", "ninja", "anonymous"].includes(username.toLowerCase())) {
-                showError("That username is like taken by literally everyone. Be original", 12);
+                showError("That username is like taken by literally everyone. Be original", 7);
                 return;
             }
 
@@ -396,7 +398,7 @@ for (let item of nextButtons) {
             }
 
             if (ageCalculated != age) {
-                showError(`Weird... your age and birth date are different. Schrödinger's birthday?`);
+                showError(`Weird... your age and birth date are different. Schrödinger's birthday?`, 7);
                 return;
             }
 
@@ -452,7 +454,7 @@ for (let item of nextButtons) {
         } else if (version == "v3" && !state.gameSkip) {
             const phone = inputMap["security"].value;
             if (phone == "") {
-                showError(`Leaving your phone number blank doesn't make you harder to track, it just makes us confused`);
+                showError(`Leaving your phone number blank doesn't make you harder to track, it just makes us confused`, 10);
                 return;
             }
 
@@ -467,13 +469,13 @@ for (let item of nextButtons) {
             }
 
             if (phone != "123-4567") {
-                showError(`We tried to call ${phone}, but it was unavailable. Please call customer support for help (hint hint)`);
+                showError(`We tried to call ${phone}, but it was unavailable. Please call customer support for help (hint hint)`, 15);
                 return;
             }
 
             const termsCheckBox = inputMap["agreement"].checked;
             if (!termsCheckBox) {
-                showError("Sorry, you must agree with our terms of service to continue");
+                showError("Sorry, you must agree with our terms of service to continue", 7);
                 return;
             }
 

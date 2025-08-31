@@ -72,6 +72,7 @@ body::before {
 
 .main > .error > div {
   overflow-y: hidden;
+  padding-inline: 0.5rem;
 }
 
 .main > .error * {
@@ -87,7 +88,12 @@ body::before {
   20% {
     grid-template-rows: 1fr;
     padding-block: 0.25rem;
-    padding-inline: 0.5rem;
+
+  }
+  80% {
+    grid-template-rows: 1fr;
+    padding-block: 0.25rem;
+
   }
 
   100% {
@@ -330,7 +336,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
   vertical-align: middle;
 }
  
-#v3, #v2 {
+#v1, #v2 {
   display: none;
 }
 
