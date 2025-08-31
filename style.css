@@ -10,6 +10,10 @@ body {
   height: 100svh;
 }
 
+pre {
+  font-family: inherit;
+}
+
 /* Background image for the body but in a pseudo element to blur it alone */
 body::before {
   content: "";
@@ -68,6 +72,7 @@ body::before {
 
 .main > .error > div {
   overflow-y: hidden;
+  padding-inline: 0.5rem;
 }
 
 .main > .error * {
@@ -80,10 +85,15 @@ body::before {
     padding-block: 0;
   }
 
-  50% {
+  20% {
     grid-template-rows: 1fr;
     padding-block: 0.25rem;
-    padding-inline: 0.5rem;
+
+  }
+  80% {
+    grid-template-rows: 1fr;
+    padding-block: 0.25rem;
+
   }
 
   100% {
@@ -111,6 +121,7 @@ body::before {
   overflow-y: auto;
   transition: 0.2s visibility, 0.2s opacity;
   visibility: hidden;
+  line-height: 1.35rem;
 }
 
 .popup pre {
@@ -180,6 +191,7 @@ body::before {
 
 .nav {
   display: flex;
+  flex-wrap: wrap;
   margin-top: auto;
 }
 
@@ -208,6 +220,8 @@ body::before {
   width: 85%; 
   height: 35px;
   border-radius: 0.5rem;
+  border: 1px solid black;
+  padding-left: 20px;
 }
 
 .password-section > button {
@@ -217,16 +231,79 @@ body::before {
   width: 13%;
 }
 
-.password-section > input {
-  border: 1px solid black;
-  padding-left: 20px;
-}
-
 .password-section > * {
   vertical-align: middle;
 }
 
+/* Catch Game */
+.catch-game {
+  position: absolute;
+  inset: 0;
+}
+
+.catch-game > button {
+  position: relative;
+  z-index: 100;
+  transition: 0.4s transform;
+  margin: 0;
+  display: none;
+  transform: translate(0, 0);
+}
+
+/* win */
+
+.right > .win {
+  display: none;
+}
+
+.win > h2 {
+  text-align: center;
+  display: none;
+}
+
+#win-text {
+  position: relative;
+  top: 30%;
+  line-height: 1.5rem;
+  text-wrap: wrap;
+  text-align: center;
+}
+
+/* Potato Loading */
+
+#potato-loading {
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+#potato-loading > div {
+  width: 100%;
+  height: 1rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  position: relative;
+  --progress: 0%
+}
+#potato-loading > div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  right: calc(100% - var(--progress));
+  border-radius: 1rem;
+  background-color: black;
+}
+
 /* Other specific stuff */
+
+input { 
+  outline: 1px solid transparent;
+  transition: 0.4s outline-color;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus {
+  outline: 1px solid black;
+}
 
 .right > div > input {
   border: 1px solid black;
@@ -253,14 +330,13 @@ body::before {
 
 .or-section > button {
   width: 49%;
-
 }
 
 .or-section > button > * {
   vertical-align: middle;
 }
-
-#v3, #v2 {
+ 
+#v1, #v2 {
   display: none;
 }
 
@@ -294,7 +370,7 @@ label[for="prove-terms"] {
   width: 150px;
   height: 170px;
   background-color: rgba(255, 255, 255, 0.8);
-  top: calc(50% - 28vh); /* Align the top of the logo box with the signup box, 28vh is basically (70% * 80vh)/2 simplified */
+  top: calc(50% - 29.75vh); /* Align the top of the logo box with the signup box, 28vh is basically (70% * 85vh)/2 simplified */
   border-radius: 1.25rem;
   position: absolute;
   left: 50%;

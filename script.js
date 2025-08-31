@@ -1,31 +1,20 @@
-function showError(message) {
+function showError(message, duration = 6) {
     const errorParent = document.getElementById("error");
     const errorMessage = document.getElementById("error-message");
-    errorMessage.textContent = message;
+    errorMessage.innerHTML = message;
     errorParent.style.animation = "none";
     void errorParent.offsetWidth;
-    errorParent.style.animation = "5s error cubic-bezier(0, 1.1, 0, 1.1)";
+    errorParent.style.animation = duration + "s error cubic-bezier(0, 1, 0, 2)";
 }
 
 function ageInput(input) {
-    document.getElementById("ageMonth").textContent = `Age (${input.value} Months Old)`;
+    document.getElementById("age-label").textContent = `Age (${input.value} Years Old)`;
 }
 
 document.getElementById("age").addEventListener("keydown", (e) => {
     e.preventDefault();
 });
 
-const nextButtons = document.getElementsByClassName("next");
-for (let item of nextButtons) {
-    item.addEventListener("click", () => {
-        const version = item.parentNode.parentNode.id;
-        let nextVersion = "v" + (parseInt(version.slice(1)) + 1)
-        if (nextVersion == "v4") return;
-        
-        document.getElementById(version).style.display = "none";
-        document.getElementById(nextVersion).style.display = "flex";
-    })
-}
 const backButtons = document.getElementsByClassName("back");
 for (let item of backButtons) {
     item.addEventListener("click", () => {
@@ -188,7 +177,7 @@ Welcome, human, alien, sentient AI, or friendly cat watching over this page. By 
 8. Hovering may trigger playful messages.
 9. Excessive blinking may result in compliments.
 10. Agreement to these terms may increase happiness by a small but measurable amount.
-11. If we ask you to prove that you have read this, just answer (potato123potatostrongerthanpotato)
+11. If we ask you to prove that you have read this, just answer (bananabanana)
 
 11. Filler Section (Because We Can)
 

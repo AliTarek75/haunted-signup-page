@@ -10,6 +10,10 @@
 </head>
 
 <body>
+  <div class="catch-game wrapper">
+    <button class="full-width" id="signup-game-button" onclick="win()">Signup</button> 
+  </div>
+
   <div class="popup wrapper">
     <pre id="popup-text">
 
@@ -37,13 +41,13 @@
         <input type="text" class="full-width" id="email" placeholder="potato@potato.potato" autocomplete="off">
         <label for="password">Password</label>
         <div class="full-width password-section">
-          <input type="password" id="password" placeholder="Choose a password" autocomplete="off">
-          <button onclick="showError('wdawd awaw faf awf awf awf aw wag agawgawg aw gawg awaw wa g')" class="material-symbols-outlined">visibility</button>
+          <input type="text" id="password" placeholder="Choose a password" autocomplete="off">
+          <button class="material-symbols-outlined">visibility</button>
         </div>
 
         <label for="confirm-password">Confirm Password</label>
         <div class="full-width password-section">
-          <input type="password" id="confirm-password" placeholder="Enter your password again" autocomplete="off">
+          <input type="text" id="confirm-password" placeholder="Enter your password again" autocomplete="off">
           <button class="material-symbols-outlined">visibility</button>
         </div>
 
@@ -57,21 +61,24 @@
           <button class="next full-width">Next</button> 
         </div>
         <p class="support">Stuck? Call our support line at 123-4567</p>
-
+      </div>
+      <div id="potato-loading">
+        <p id="potato-loading-text">Loading Potato Servers</p>
+        <div id="potato-loading-bar"></div>
       </div>
       
       <div id="v2" class="wrapper">
         <label for="full-name">Full Name</label>
-        <input type="text" class="full-width" id="full-name" placeholder="First Last">
+        <input type="text" class="full-width" id="full-name" placeholder="First Last" autocomplete="off">
 
         <label for="username">Username</label>
-        <input type="text" class="full-width" id="username" placeholder="Choose a unique username">
+        <input type="text" class="full-width" id="username" placeholder="Choose a unique username" autocomplete="off">
 
         <label for="birth-date">Date of birth</label>
         <input style="color: gray;" type="date" class="full-width" id="birth-date">
 
-        <label id="ageMonth" for="age">Age</label>
-        <input type="range" min="0" max="1000" id="age" oninput="ageInput(this)">
+        <label id="age-label" for="age">Age</label>
+        <input type="range" min="0" max="100" id="age" step="1" oninput="ageInput(this)">
 
         <label>Gender</label>
         <div class="gender wrapper">
@@ -89,8 +96,8 @@
       </div>
 
       <div id="v3" class="wrapper">
-        <label for="username">Security Question: What's your username?</label>
-        <input type="text" class="full-width" id="username" placeholder="Yes, the same one you just typed">
+        <label for="security">Phone number (for account recovery)</label>
+        <input type="text" class="full-width" id="security" placeholder="Enter your phone number" autocomplete="off">
 
         <div class="full-width wrapper terms">
           <input type="checkbox" id="agreement">
@@ -99,7 +106,7 @@
         </div>
         
         <label for="prove-terms">Prove that you read the Terms of Service & Privacy Policy. </label>
-        <input type="text" class="full-width" id="prove-terms" placeholder="Hint: It's in the Miscellaneous section">
+        <input type="text" class="full-width" id="prove-terms" placeholder="Hint: It's in the Miscellaneous section" autocomplete="off">
 
         <div class="full-width marketing wrapper">
           <input type="checkbox" id="marketing">
@@ -110,17 +117,22 @@
           <label for="funny-question" id="funny-question-label"></label><br>
         </div>
         
-        
         <button class="prove-robot full-width">Prove you are not a robot</button>
         <div class="full-width nav wrapper last-nav">
           <button class="back full-width">Back</button> 
-          <button class="next full-width">Signup</button> 
+          <button class="next full-width" id="signup">Signup</button> 
         </div>
         <p class="support">Stuck? Call our support line at 123-4567</p>
+      </div>
+      <div class="win">
+        <h2>Congratulations!</h2>
+        <pre id="win-text">
+        </pre>
       </div>
     </div>
   </div>
   <script src="script.js"></script>
+  <script src="game.js"></script>
 </body>
 
 </html>
