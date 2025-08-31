@@ -133,7 +133,7 @@ body::before {
 
 .right > div {
   width: 70%;
-  height: 400px;
+  height: 430px;
   background-color: rgba(255, 255, 255, 0.625);
   position: absolute;
   left: 50%;
@@ -191,6 +191,15 @@ body::before {
   width: 35%;
   margin-left: auto;
   display: inline-block;
+}
+
+.support {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 /* Password Section Design in v1 */
@@ -335,7 +344,7 @@ label[for="prove-terms"] {
 
 
 
-@media screen and (max-height: 570px) {
+@media screen and (max-height: 600px) {
   .main {
     height: 85% !important;
   }
@@ -343,7 +352,7 @@ label[for="prove-terms"] {
     height: 85%;
   }
 }
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 520px) {
   .main {
     height: 92% !important;
   }
