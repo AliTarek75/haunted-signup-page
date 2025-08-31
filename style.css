@@ -336,7 +336,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
   vertical-align: middle;
 }
  
-#v1, #v2 {
+#v3, #v2 {
   display: none;
 }
 
